@@ -4,6 +4,8 @@
   "package": "com.wennest.placeable.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractBlockMixin",
+    "SnowLayerBlockMixin",
     "BambooBlockMixin",
     "BambooSaplingBlockMixin",
     "BigDripleafBlockMixin",

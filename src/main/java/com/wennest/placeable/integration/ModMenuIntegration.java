@@ -14,65 +14,75 @@ import net.minecraft.text.Text;
 
 @Environment(EnvType.CLIENT)
 public class ModMenuIntegration implements ModMenuApi {
-    @Override
-    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> {
-            PlaceableConfig config = AutoConfig.getConfigHolder(PlaceableConfig.class).getConfig();
-            ConfigBuilder builder = ConfigBuilder.create()
-                    .setParentScreen(parent)
-                    .setTitle(Text.translatable("mod.name"));
-            ConfigEntryBuilder entryBuilder = builder.entryBuilder();
+  @Override
+  public ConfigScreenFactory<?> getModConfigScreenFactory() {
+    return parent -> {
+      PlaceableConfig config = AutoConfig.getConfigHolder(PlaceableConfig.class).getConfig();
+      ConfigBuilder builder = ConfigBuilder.create()
+          .setParentScreen(parent)
+          .setTitle(Text.translatable("mod.name"));
+      ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-            // General Category
-            ConfigCategory genericCategory = builder.getOrCreateCategory(
-                    Text.translatable("config.placeable.category.general")
-            );
-            genericCategory.addEntry(entryBuilder
-                    .startBooleanToggle(
-                            Text.translatable("config.placeable.option.enable"),
-                            config.enable
-                    )
-                    .setDefaultValue(true)
-                    .setSaveConsumer(newValue -> config.enable = newValue)
-                    .build()
-            );
-            genericCategory.addEntry(entryBuilder
-                    .startBooleanToggle(
-                            Text.translatable("config.placeable.option.placed_without_top_rim"),
-                            config.placedWithoutTopRim
-                    )
-                    .setTooltip(
-                            Text.translatable("config.placeable.option.placed_without_top_rim.tooltip")
-                    )
-                    .setDefaultValue(false)
-                    .setSaveConsumer(newValue -> config.placedWithoutTopRim = newValue)
-                    .build()
-            );
+      // General Category
+      ConfigCategory genericCategory = builder.getOrCreateCategory(
+          Text.translatable("config.placeable.category.general"));
+      genericCategory.addEntry(entryBuilder
+          .startBooleanToggle(
+              Text.translatable("config.placeable.option.enable"),
+              config.enable)
+          .setDefaultValue(true)
+          .setSaveConsumer(newValue -> config.enable = newValue)
+          .build());
+      genericCategory.addEntry(entryBuilder
+          .startBooleanToggle(
+              Text.translatable("config.placeable.option.placed_without_top_rim"),
+              config.placedWithoutTopRim)
+          .setTooltip(
+              Text.translatable("config.placeable.option.placed_without_top_rim.tooltip"))
+          .setDefaultValue(false)
+          .setSaveConsumer(newValue -> config.placedWithoutTopRim = newValue)
+          .build());
 
-            // Allowed Plants Category
-            ConfigCategory allowedPlantsCategory = builder.getOrCreateCategory(
-                    Text.translatable("config.placeable.category.allowed_plants")
-            );
-            for (PlaceablePlants plants : PlaceablePlants.values()) {
-                boolean current = config.allowPlaceablePlants.get(plants);
-                allowedPlantsCategory.addEntry(entryBuilder
-                        .startBooleanToggle(
-                                Text.literal(plants.getTranslationName()),
-                                current
-                        )
-                        .setDefaultValue(true)
-                        .setSaveConsumer(newValue -> config.allowPlaceablePlants.put(plants, newValue))
-                        .build()
-                );
-            }
+      // Universal Placement Category
+      ConfigCategory universalCategory = builder.getOrCreateCategory(
+          Text.translatable("config.placeable.category.universal"));
+      universalCategory.addEntry(entryBuilder
+          .startBooleanToggle(
+              Text.translatable("config.placeable.option.enable_universal"),
+              config.enableUniversalPlacement)
+          .setTooltip(
+              Text.translatable("config.placeable.option.enable_universal.tooltip"))
+          .setDefaultValue(false)
+          .setSaveConsumer(newValue -> config.enableUniversalPlacement = newValue)
+          .build());
+      universalCategory.addEntry(entryBuilder
+          .startBooleanToggle(
+              Text.translatable("config.placeable.option.require_sneak"),
+              config.requireSneakForNormalPlacement)
+          .setTooltip(
+              Text.translatable("config.placeable.option.require_sneak.tooltip"))
+          .setDefaultValue(true)
+          .setSaveConsumer(newValue -> config.requireSneakForNormalPlacement = newValue)
+          .build());
 
-            // Saving
-            builder.setSavingRunnable(() ->
-                    AutoConfig.getConfigHolder(PlaceableConfig.class).save()
-            );
+      // Allowed Plants Category
+      ConfigCategory allowedPlantsCategory = builder.getOrCreateCategory(
+          Text.translatable("config.placeable.category.allowed_plants"));
+      for (PlaceablePlants plants : PlaceablePlants.values()) {
+        boolean current = config.allowPlaceablePlants.get(plants);
+        allowedPlantsCategory.addEntry(entryBuilder
+            .startBooleanToggle(
+                Text.literal(plants.getTranslationName()),
+                current)
+            .setDefaultValue(true)
+            .setSaveConsumer(newValue -> config.allowPlaceablePlants.put(plants, newValue))
+            .build());
+      }
 
-            return builder.build();
-        };
-    }
+      // Saving
+      builder.setSavingRunnable(() -> AutoConfig.getConfigHolder(PlaceableConfig.class).save());
+
+      return builder.build();
+    };
+  }
 }
-

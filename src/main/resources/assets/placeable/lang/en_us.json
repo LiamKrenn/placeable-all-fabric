@@ -4,5 +4,10 @@
   "config.placeable.option.enable": "Enable Placeable Plants.",
   "config.placeable.option.placed_without_top_rim": "Allow placement on blocks without a top rim.",
   "config.placeable.option.placed_without_top_rim.tooltip": "If enabled, plants may float and unknown bugs may occur!",
+  "config.placeable.category.universal": "Universal Placement",
+  "config.placeable.option.enable_universal": "Enable Universal Block Placement",
+  "config.placeable.option.enable_universal.tooltip": "Allows ANY block to be placed on ANY other block. Warning: This can cause physics issues!",
+  "config.placeable.option.require_sneak": "Require Sneak for Normal Placement",
+  "config.placeable.option.require_sneak.tooltip": "When enabled, you must sneak to place blocks normally. Without sneaking, blocks will be placeable anywhere.",
   "config.placeable.category.allowed_plants": "Allowed plants"
 }

@@ -10,18 +10,24 @@ import java.util.Map;
 @Config(name = Placeable.MODID)
 public class PlaceableConfig implements ConfigData {
 
-    @Comment("Enable or disable the mod.")
-    public boolean enable = true;
+  @Comment("Enable or disable the mod.")
+  public boolean enable = true;
 
-    @Comment("Allow placement on blocks without a top rim.")
-    public boolean placedWithoutTopRim = false;
+  @Comment("Allow placement on blocks without a top rim.")
+  public boolean placedWithoutTopRim = false;
 
-    @Comment("Allow or disable specific plants.")
-    public Map<PlaceablePlants, Boolean> allowPlaceablePlants = new EnumMap<>(PlaceablePlants.class);
+  @Comment("Allow or disable specific plants.")
+  public Map<PlaceablePlants, Boolean> allowPlaceablePlants = new EnumMap<>(PlaceablePlants.class);
 
-    public PlaceableConfig() {
-        for (PlaceablePlants e : PlaceablePlants.values()) {
-            allowPlaceablePlants.put(e, true);
-        }
+  @Comment("Enable universal block placement (allows ANY block to be placed on ANY other block).")
+  public boolean enableUniversalPlacement = false;
+
+  @Comment("When universal placement is enabled, require sneaking to place blocks normally.")
+  public boolean requireSneakForNormalPlacement = true;
+
+  public PlaceableConfig() {
+    for (PlaceablePlants e : PlaceablePlants.values()) {
+      allowPlaceablePlants.put(e, true);
     }
+  }
 }
