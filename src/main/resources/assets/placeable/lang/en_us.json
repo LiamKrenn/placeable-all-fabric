@@ -1,13 +1,15 @@
 {
-  "mod.name": "Placeable",
-  "config.placeable.category.general": "General",
-  "config.placeable.option.enable": "Enable Placeable Plants.",
-  "config.placeable.option.placed_without_top_rim": "Allow placement on blocks without a top rim.",
-  "config.placeable.option.placed_without_top_rim.tooltip": "If enabled, plants may float and unknown bugs may occur!",
-  "config.placeable.category.universal": "Universal Placement",
-  "config.placeable.option.enable_universal": "Enable Universal Block Placement",
-  "config.placeable.option.enable_universal.tooltip": "Allows ANY block to be placed on ANY other block. Warning: This can cause physics issues!",
-  "config.placeable.option.require_sneak": "Require Sneak for Normal Placement",
-  "config.placeable.option.require_sneak.tooltip": "When enabled, you must sneak to place blocks normally. Without sneaking, blocks will be placeable anywhere.",
-  "config.placeable.category.allowed_plants": "Allowed plants"
+  "config.placeable.title": "Universal Placeable",
+  "config.placeable.category.main": "Main Settings",
+  "config.placeable.option.enable": "Enable Universal Placement",
+  "config.placeable.option.enable.tooltip": "Allows ANY block to be placed on ANY other block",
+  "config.placeable.option.ignore_top_rim": "Ignore Top Rim Requirement",
+  "config.placeable.option.ignore_top_rim.tooltip": "Allows placement on fences, walls, etc. (blocks without full top surface)",
+  "config.placeable.option.floating": "Allow Floating Blocks",
+  "config.placeable.option.floating.tooltip": "Blocks can be placed without anything below them (overrides other options)",
+  "config.placeable.category.blocklist": "Block Filter",
+  "config.placeable.option.blocklist_mode": "Use as Blocklist",
+  "config.placeable.option.blocklist_mode.tooltip": "ON = Listed blocks are EXCLUDED | OFF = ONLY listed blocks are affected",
+  "config.placeable.option.block_list": "Block List",
+  "config.placeable.option.block_list.tooltip": "Block IDs like 'minecraft:snow' or 'minecraft:stone'. Empty = all blocks"
 }
