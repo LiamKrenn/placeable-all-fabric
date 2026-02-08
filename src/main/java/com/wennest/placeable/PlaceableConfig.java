@@ -80,7 +80,7 @@ public class PlaceableConfig implements ConfigData {
         blockList.add("big_dripleaf_stem");
         blockList.add("small_dripleaf");
         blockList.add("bush");
-        blockList.add("sweet_berry_bush")
+        blockList.add("sweet_berry_bush");
         
         // Flowers
         blockList.add("dandelion");
