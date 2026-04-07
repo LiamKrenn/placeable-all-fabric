@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class Placeable implements ModInitializer {
-    public static final String MODID = "placeable";
+public class PlaceableAll implements ModInitializer {
+    public static final String MODID = "placeableall";
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
     public static boolean shouldApplyUniversalPlacement(Block block) {
@@ -44,6 +44,6 @@ public class Placeable implements ModInitializer {
     public void onInitialize() {
         long loadTook = System.currentTimeMillis();
         AutoConfig.register(PlaceableConfig.class, GsonConfigSerializer::new);
-        LOGGER.info("Universal Placeable mod loaded in {} ms!", System.currentTimeMillis() - loadTook);
+        LOGGER.info("Placeable All mod loaded in {} ms!", System.currentTimeMillis() - loadTook);
     }
 }

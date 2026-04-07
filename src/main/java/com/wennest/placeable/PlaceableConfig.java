@@ -7,7 +7,7 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import java.util.HashSet;
 import java.util.Set;
 
-@Config(name = Placeable.MODID)
+@Config(name = PlaceableAll.MODID)
 public class PlaceableConfig implements ConfigData {
 
     @Comment("Enable or disable universal block placement.")

@@ -1,112 +1,74 @@
 <p align="center">
     <br>
-    <img src="https://raw.githubusercontent.com/wenwen357951/placeable-fabric/main/src/main/resources/assets/placeable/icon.png" alt="Placeable Plants Logo" width="256">
+    <img src="src/main/resources/assets/placeable/icon.png" alt="Placeable Plants Logo" width="256">
     <br>
 </p>
 
-<h4 align="center">Source code of the Placeable Plants fabric mod.</h4>
-<p align="center">
-    <a href="https://www.codefactor.io/repository/github/wenwen357951/placeable-fabric">
-        <img src="https://www.codefactor.io/repository/github/wenwen357951/placeable-fabric/badge?style=for-the-badge" alt="CodeFactor Score">
-    </a>
-    <a href="https://discord.gg/DdaCWYqmZt">
-        <img src="https://img.shields.io/discord/1141595063567273995?style=for-the-badge" alt="Discord chat" />
-    </a>
-    <a href="https://modrinth.com/mod/placeable-plants">
-        <img src="https://img.shields.io/modrinth/dt/placeable-plants?style=for-the-badge" alt="Modrinth downloads" />
-    </a>
-    <img src="https://img.shields.io/github/license/wenwen357951/placeable-fabric?style=for-the-badge" alt="GitHub License" />
-</p>
+<h1 align="center">Placeable All (fork by Liam Krenn)</h1>
 
-## 🪴 What is it?
+This repository contains a fork of the original Placeable Plants Fabric mod. The mod lets you place **any blocks** on almost any surface when a Debug Stick is held in your offhand.
 
-<center>
-    <p align="center"><b>This Fabric Mod allows you to place plants on almost all blocks.</b></p>
-    <img src="https://cdn.modrinth.com/data/o3wjLmDn/images/3eb7e86e4f0d0077abef1214e6b7cda8a49fe1d7.png" alt="Grass placed on weird blocks">
-    <p align="center"><b>Fill your world with greenery!</b></p>
-    <img src="https://cdn.modrinth.com/data/cached_images/4a3d778f72ba04dcd8f00d58563dbbd4a9680d2a.jpeg" alt="Grass on a cobblestone street">
-</center>
+## 🌱 What does this mod do?
 
-## 🎉 Feature
+- Allows **any block** placement on most surfaces when the player holds a Debug Stick in the offhand.
+- Keeps vanilla placement rules when the Debug Stick is not present.
+- Supports fences, walls, and other non-standard top surfaces when configured.
+- Can optionally allow floating placement in air.
+- Works without changing world generation.
 
-- This Mod allows you to place plants on any flat surface. To do that, just right-click on a flat surface.
-- Added recipes for Tall Dry Grass, Tall Grass and Large Fern
+## 🎮 How to use
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/wenwen357951/placeable-fabric/refs/heads/docs/docs/img/recipe-tall-dry-grass.png" alt="The Tall Dry Grass Recipe" width="30%">
-    <img src="https://raw.githubusercontent.com/wenwen357951/placeable-fabric/refs/heads/docs/docs/img/recipe-tall-grass.png" alt="The Tall Grass Recipe" width="30%">
-    <img src="https://raw.githubusercontent.com/wenwen357951/placeable-fabric/refs/heads/docs/docs/img/recipe-large-fern.png" alt="The Large Fern Recipe" width="30%">
-</p>
+1. Give yourself a Debug Stick: `/give @s debug_stick`
+2. Hold the Debug Stick in your offhand.
+3. Hold a placeable plant block in your main hand.
+4. Right-click on the target surface.
 
-## 🎍 How to use?
+> If the Debug Stick is not in your offhand, vanilla Minecraft placement rules are used.
 
-When you right-click on a floor block, with some plant it'll be plants
+## 🛠️ Main features
 
-The available plants are:
+- `Enable Universal Placement`: turns the mod on or off.
+- `Ignore Top Rim`: allows placement on fences, walls, and other blocks without a normal top surface.
+- `Allow Floating Blocks`: enables placing supported blocks in mid-air.
+- `Block List`: customize which blocks are affected by the mod.
+- `useAsBlocklist`: choose whether the list excludes or includes blocks.
 
-- Grass and Tall Grass
-- Fern and Large Fern
-- Cactus
-- Sugar Cane
-- Bamboo
-- Dead Bush
-- Cocoa beans
-- Sweet Berries
-- Big / Small Dripleaf
-- Nether Wart
-- Nether Sprouts
-- Crimson / Warped Roots
-- Mangrove Propagule
-- Torchflowers
-- Pitcher Plant
-- ...
-- All Flowers
-- All Saplings
-- All Crops
+## 📦 Configuration
 
-## 📦 How to install?
+The mod uses `config/placeableall.json` and can be configured from the mod menu or by editing the file directly.
 
-1. Download the Mod
-2. Navigate to your `mods` folder
-3. Put the downloaded `.jar` file ([Placeable Plants]) into this folder
+Example config:
 
-## 🛠️ Configuration
-
-The mod allows you to control whether various plants can be placed anywhere (default: all enabled).
-
-The primary way to configure this is through the mod menu's settings panel.
-
-<img src="https://raw.githubusercontent.com/wenwen357951/placeable-fabric/refs/heads/docs/docs/img/placeable-config-setting.png" alt="Grass placed on weird blocks">
-
-For advanced users, the `placeable.json` configuration file can also be directly modified as a secondary method.
-
-```
-config/placeable.json
-
+```json
 {
-  // Enable or disable the mod.
-  "enable": true,
-
-  // Allow placement on blocks without a top rim.
-  "placedWithoutTopRim": false,
-
-  // Allow or disable specific plants.
-  "allowPlaceablePlants": {
-    "OAK_SAPLING": true,
-    "SPRUCE_SAPLING": true,
-    ...
-    "NETHER_SPROUTS": true,
-    "NETHER_WART": true,
-    "LILY_PAD": true
-  }
+  "enableUniversalPlacement": true,
+  "ignoreTopRim": false,
+  "allowFloatingBlocks": false,
+  "blockList": ["minecraft:fern", "minecraft:large_fern"],
+  "useAsBlocklist": false
 }
 ```
 
+- `enableUniversalPlacement`: enables or disables the forked placement behavior.
+- `ignoreTopRim`: lets you place on blocks like fences and walls.
+- `allowFloatingBlocks`: allows midair placement.
+- `blockList`: when empty, all blocks are affected. Otherwise, this list is used as either allowlist or blocklist.
+- `useAsBlocklist`: if `true`, blocks in the list are excluded; if `false`, blocks in the list are included.
+
+## 🌿 Supported blocks
+
+This fork is designed for **any blocks**, configurable via the block list. By default, it includes common decoration blocks, but you can customize it to include or exclude specific blocks.
+
+## 📘 Local docs
+
+- `docs/README.md` contains a shorter documentation landing page for this fork.
+- `docs/img/` holds the example recipe and config screenshots used in this repository.
+
 ## 📌 Credits
 
-[Bisumto] the original creator of this feature.
+- Fork maintained by **Liam Krenn**.
+- Originally based on the Placeable Plants mod and forked from the `wenwen357951/placeable-fabric` repository.
+- Original feature concept by **Bisumto**.
 
-
-[Placeable Plants]: https://modrinth.com/mod/placeable-plants
-
+[Original source]: https://github.com/wenwen357951/placeable-fabric
 [Bisumto]: https://github.com/BisUmTo/placeable

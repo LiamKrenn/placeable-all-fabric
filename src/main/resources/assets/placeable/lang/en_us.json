@@ -1,8 +1,8 @@
 {
-  "config.placeable.title": "Universal Placeable",
+  "config.placeable.title": "Placeable All",
   "config.placeable.category.main": "Main Settings",
   "config.placeable.option.enable": "Enable Universal Placement",
-  "config.placeable.option.enable.tooltip": "Allows ANY block to be placed on ANY other block",
+  "config.placeable.option.enable.tooltip": "Allows ANY block to be placed on ANY other block when Debug Stick is in offhand",
   "config.placeable.option.ignore_top_rim": "Ignore Top Rim Requirement",
   "config.placeable.option.ignore_top_rim.tooltip": "Allows placement on fences, walls, etc. (blocks without full top surface)",
   "config.placeable.option.floating": "Allow Floating Blocks",

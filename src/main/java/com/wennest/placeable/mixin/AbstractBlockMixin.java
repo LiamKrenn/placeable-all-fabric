@@ -1,7 +1,7 @@
 package com.wennest.placeable.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.wennest.placeable.Placeable;
+import com.wennest.placeable.PlaceableAll;
 import com.wennest.placeable.PlaceableConfig;
 import com.wennest.placeable.util.PlacementContext;
 import net.minecraft.block.AbstractBlock;
@@ -40,11 +40,11 @@ public abstract class AbstractBlockMixin {
         BlockState state = asBlockState();
         
         // Check if this block should have universal placement
-        if (!Placeable.shouldApplyUniversalPlacement(state.getBlock())) {
+        if (!PlaceableAll.shouldApplyUniversalPlacement(state.getBlock())) {
             return original;
         }
 
-        PlaceableConfig config = Placeable.getConfig();
+        PlaceableConfig config = PlaceableAll.getConfig();
 
         // Handle player breaking blocks - preserve floating blocks only when the player is using a debug stick.
         if (PlacementContext.isPlayerBreaking()) {
