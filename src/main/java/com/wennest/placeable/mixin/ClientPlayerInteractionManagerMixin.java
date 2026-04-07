@@ -1,7 +1,9 @@
 package com.wennest.placeable.mixin;
 
 import com.wennest.placeable.util.PlacementContext;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,8 +23,11 @@ public class ClientPlayerInteractionManagerMixin {
      */
     @Inject(method = "breakBlock", at = @At("HEAD"))
     private void beforeClientBreakBlock(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        // Set flag to indicate a player is breaking a block
+        // Set flag to indicate a player is breaking a block.
         PlacementContext.setPlayerBreaking(true);
+        if (MinecraftClient.getInstance().player != null) {
+            PlacementContext.setHasDebugStick(MinecraftClient.getInstance().player.getOffHandStack().isOf(Items.DEBUG_STICK));
+        }
     }
 
     /**
@@ -41,6 +46,9 @@ public class ClientPlayerInteractionManagerMixin {
     private void beforeAttackBlock(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         // Set flag when player starts attacking a block
         PlacementContext.setPlayerBreaking(true);
+        if (MinecraftClient.getInstance().player != null) {
+            PlacementContext.setHasDebugStick(MinecraftClient.getInstance().player.getOffHandStack().isOf(Items.DEBUG_STICK));
+        }
     }
 
     /**

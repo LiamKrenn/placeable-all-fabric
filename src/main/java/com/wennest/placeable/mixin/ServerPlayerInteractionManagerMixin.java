@@ -1,7 +1,7 @@
 package com.wennest.placeable.mixin;
 
 import com.wennest.placeable.util.PlacementContext;
-import net.minecraft.block.BlockState;
+import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.util.math.BlockPos;
@@ -27,8 +27,11 @@ public class ServerPlayerInteractionManagerMixin {
      */
     @Inject(method = "tryBreakBlock", at = @At("HEAD"))
     private void beforeBreakBlock(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        // Set flag to indicate a player is breaking a block
+        // Set flag to indicate a player is breaking a block.
         PlacementContext.setPlayerBreaking(true);
+        if (player != null) {
+            PlacementContext.setHasDebugStick(player.getOffHandStack().isOf(Items.DEBUG_STICK));
+        }
     }
 
     /**

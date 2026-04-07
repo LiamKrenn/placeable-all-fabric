@@ -46,21 +46,14 @@ public abstract class AbstractBlockMixin {
 
         PlaceableConfig config = Placeable.getConfig();
 
-        // Handle player breaking blocks - preserve floating blocks if configured AND player has debug stick
+        // Handle player breaking blocks - preserve floating blocks only when the player is using a debug stick.
         if (PlacementContext.isPlayerBreaking()) {
-            // Only preserve if player has debug stick and floating blocks are enabled
-            if (PlacementContext.hasDebugStick() && config.allowFloatingBlocks) {
-                return true;
-            }
-            // If no debug stick OR floating disabled, preserve existing blocks during neighbor updates
-            // This prevents breaking blocks when player breaks nearby blocks
-            return !world.getBlockState(pos).isAir();
+            return PlacementContext.isDebugStickActive() && config.allowFloatingBlocks;
         }
 
         // Handle player placement context
         if (PlacementContext.isPlayerPlacing()) {
-            // If player has debug stick, apply universal placement rules
-            if (PlacementContext.hasDebugStick()) {
+            if (PlacementContext.isDebugStickActive()) {
                 // Get the block below
                 BlockPos belowPos = pos.down();
                 BlockState blockBelow = world.getBlockState(belowPos);

@@ -26,41 +26,10 @@ public class PlaceableConfig implements ConfigData {
     public boolean allowFloatingBlocks = false;
 
     public PlaceableConfig() {
-        // Default allowlist - common decoration blocks
+        // Default allowlist: common decoration blocks
         blockList.add("snow");
         blockList.add("snow_block");
-        
-        // All carpet colors
-        // blockList.add("white_carpet");
-        // blockList.add("orange_carpet");
-        // blockList.add("magenta_carpet");
-        // blockList.add("light_blue_carpet");
-        // blockList.add("yellow_carpet");
-        // blockList.add("lime_carpet");
-        // blockList.add("pink_carpet");
-        // blockList.add("gray_carpet");
-        // blockList.add("light_gray_carpet");
-        // blockList.add("cyan_carpet");
-        // blockList.add("purple_carpet");
-        // blockList.add("blue_carpet");
-        // blockList.add("brown_carpet");
-        // blockList.add("green_carpet");
-        // blockList.add("red_carpet");
-        // blockList.add("black_carpet");
-        
-        // Torches
-        // blockList.add("torch");
-        // blockList.add("wall_torch");
-        // blockList.add("soul_torch");
-        // blockList.add("soul_wall_torch");
-        // blockList.add("redstone_torch");
-        // blockList.add("redstone_wall_torch");
-        
-        // Lanterns
-        // blockList.add("lantern");
-        // blockList.add("soul_lantern");
-        
-        // Vegetation
+
         blockList.add("short_grass");
         blockList.add("tall_grass");
         blockList.add("fern");
@@ -81,8 +50,7 @@ public class PlaceableConfig implements ConfigData {
         blockList.add("small_dripleaf");
         blockList.add("bush");
         blockList.add("sweet_berry_bush");
-        
-        // Flowers
+
         blockList.add("dandelion");
         blockList.add("poppy");
         blockList.add("blue_orchid");
@@ -104,12 +72,10 @@ public class PlaceableConfig implements ConfigData {
         blockList.add("open_eyeblossom");
         blockList.add("torchflower");
         blockList.add("pitcher_plant");
-        
-        // Mushrooms
+
         blockList.add("red_mushroom");
         blockList.add("brown_mushroom");
-        
-        // Saplings
+
         blockList.add("oak_sapling");
         blockList.add("spruce_sapling");
         blockList.add("birch_sapling");
@@ -119,51 +85,5 @@ public class PlaceableConfig implements ConfigData {
         blockList.add("cherry_sapling");
         blockList.add("mangrove_propagule");
         blockList.add("bamboo_sapling");
-        // blockList.add("bamboo");
-        
-        // Other decoration
-        // blockList.add("ladder");
-        // blockList.add("vine");
-        // blockList.add("lever");
-        // blockList.add("cactus");
-        // blockList.add("sugar_cane");
-        // blockList.add("bamboo");
-        // blockList.add("lily_pad");
-        
-        // Rails (for decoration)
-        // blockList.add("rail");
-        // blockList.add("powered_rail");
-        // blockList.add("detector_rail");
-        // blockList.add("activator_rail");
-        
-        // Buttons (for decoration)
-        // blockList.add("stone_button");
-        // blockList.add("oak_button");
-        // blockList.add("spruce_button");
-        // blockList.add("birch_button");
-        // blockList.add("jungle_button");
-        // blockList.add("acacia_button");
-        // blockList.add("dark_oak_button");
-        // blockList.add("crimson_button");
-        // blockList.add("warped_button");
-        // blockList.add("mangrove_button");
-        // blockList.add("cherry_button");
-        // blockList.add("bamboo_button");
-        
-        // Pressure plates
-        // blockList.add("stone_pressure_plate");
-        // blockList.add("oak_pressure_plate");
-        // blockList.add("spruce_pressure_plate");
-        // blockList.add("birch_pressure_plate");
-        // blockList.add("jungle_pressure_plate");
-        // blockList.add("acacia_pressure_plate");
-        // blockList.add("dark_oak_pressure_plate");
-        // blockList.add("crimson_pressure_plate");
-        // blockList.add("warped_pressure_plate");
-        // blockList.add("mangrove_pressure_plate");
-        // blockList.add("cherry_pressure_plate");
-        // blockList.add("bamboo_pressure_plate");
-        // blockList.add("light_weighted_pressure_plate");
-        // blockList.add("heavy_weighted_pressure_plate");
     }
 }
