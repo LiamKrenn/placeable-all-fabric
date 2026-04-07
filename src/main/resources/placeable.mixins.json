@@ -3,7 +3,8 @@
   "minVersion": "0.8",
   "package": "com.wennest.placeable.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["AbstractBlockMixin"],
+  "mixins": ["AbstractBlockMixin", "BlockItemMixin", "ServerPlayerInteractionManagerMixin"],
+  "client": ["ClientPlayerInteractionManagerMixin"],
   "injectors": {
     "defaultRequire": 1
   }
